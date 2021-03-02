@@ -19,8 +19,10 @@ services:
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
-     networks:
+    networks:
       - deployer
+
+
       
   db:
     image: 'jc21/mariadb-aria:latest'
@@ -33,3 +35,4 @@ services:
       - ./data/mysql:/var/lib/mysql
     networks:
       - deployer
+  
