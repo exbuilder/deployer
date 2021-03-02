@@ -2,8 +2,7 @@ version: '3.7'
 
 networks:
   default: 
-    external: 
-      name: exbuilder_deployer
+    name: exbuilder_deployer
     
 services:
   app:
@@ -12,6 +11,7 @@ services:
       - '80:80'
       - '81:81'
       - '443:443'
+    container_name: nginxproxymanager
     environment:
       DB_MYSQL_HOST: "db"
       DB_MYSQL_PORT: 3306
@@ -24,6 +24,7 @@ services:
       
   db:
     image: 'jc21/mariadb-aria:10.4.15'
+    container_name: nginxproxymanager_db
     environment:
       MYSQL_ROOT_PASSWORD: 'npm'
       MYSQL_DATABASE: 'npm'
