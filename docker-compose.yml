@@ -2,7 +2,7 @@ version: '3.7'
 
 networks:
   deployer:
-    name: deployer
+    name: deployer_nginxproxymanager
     
 services:
   app:
@@ -20,6 +20,8 @@ services:
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
+    networks:
+      - deployer
   db:
     image: 'jc21/mariadb-aria:10.4.15'
     environment:
@@ -29,3 +31,5 @@ services:
       MYSQL_PASSWORD: 'npm'
     volumes:
       - ./data/mysql:/var/lib/mysql
+    networks:
+      - deployer
