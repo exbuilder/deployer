@@ -21,6 +21,7 @@ services:
       - ./letsencrypt:/etc/letsencrypt
      networks:
       - deployer
+      
   db:
     image: 'jc21/mariadb-aria:latest'
     environment:
