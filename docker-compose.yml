@@ -1,4 +1,9 @@
 version: '3.7'
+
+networks:
+  deployer:
+    name: deployer
+    
 services:
   app:
     image: 'jc21/nginx-proxy-manager:2.8.0'
