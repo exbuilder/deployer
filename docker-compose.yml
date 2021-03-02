@@ -1,8 +1,4 @@
 version: '3.7'
-
-networks:
-  deployer: 
-  
 services:
   app:
     image: 'jc21/nginx-proxy-manager:latest'
@@ -19,11 +15,6 @@ services:
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
-    networks:
-      - deployer
-
-
-      
   db:
     image: 'jc21/mariadb-aria:latest'
     environment:
@@ -33,6 +24,3 @@ services:
       MYSQL_PASSWORD: 'npm'
     volumes:
       - ./data/mysql:/var/lib/mysql
-    networks:
-      - deployer
-  
