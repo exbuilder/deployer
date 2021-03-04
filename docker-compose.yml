@@ -25,7 +25,7 @@ services:
       DB_MYSQL_HOST: "db"
       DB_MYSQL_PORT: 3306
       DB_MYSQL_USER: "npm"
-      DB_MYSQL_PASSWORD: "npm"
+      DB_MYSQL_PASSWORD: "${DB_PASSWORD}"
       DB_MYSQL_NAME: "npm"
     volumes:
       - ./data:/data
@@ -35,9 +35,9 @@ services:
     image: 'jc21/mariadb-aria:10.4.15'
     container_name: nginxproxymanager_db
     environment:
-      MYSQL_ROOT_PASSWORD: 'npm'
+      MYSQL_ROOT_PASSWORD: '${DB_ROOT_PASSWORD}'
       MYSQL_DATABASE: 'npm'
       MYSQL_USER: 'npm'
-      MYSQL_PASSWORD: 'npm'
+      MYSQL_PASSWORD: '${DB_PASSWORD}'
     volumes:
       - ./data/mysql:/var/lib/mysql
